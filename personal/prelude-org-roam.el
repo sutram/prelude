@@ -1,6 +1,8 @@
 (prelude-require-packages '(org-roam))
 
-(setq org-roam-directory (file-truename "~/org-roam"))
+(setq org-roam-directory (expand-file-name "~/SynologyDrive/Roam"))
+(setq org-id-locations-file (concat org-roam-directory ".org-id-locations"))
+(setq org-roam-db-location (expand-file-name "~/SynologyDrive/Roam/org-roam.db"))
 
 (org-roam-db-autosync-enable)
 
