@@ -371,5 +371,5 @@ do not already have one."
   ;;                                  ("scratchpad.org" :maxlevel . 9)
   ;;                                  )))
 
-  (add-to-list 'display-buffer-alist (cons "\\*Calendar\\*" (cons #'my-org/my-position-calendar-buffer nil)))
+  ;; (add-to-list 'display-buffer-alist (cons "\\*Calendar\\*" (cons #'my-org/my-position-calendar-buffer nil)))
   )
