@@ -1,5 +1,14 @@
 (crux-with-region-or-line comment-or-uncomment-region)
 
+(if (version< emacs-version "28.1")
+    (progn
+      (put 'dired-find-alternate-file 'disabled nil) ; disables warning
+      (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file) ; was dired-advertised-find-file
+      (define-key dired-mode-map (kbd "^") (lambda () (interactive) (find-alternate-file "..")))  ; was dired-up-directory
+      )
+  (setf dired-kill-when-opening-new-dired-buffer t)
+)
+
 (setq helm-grep-ag-command (concat "rg"
                                    " --color=always"
                                    " --smart-case"
