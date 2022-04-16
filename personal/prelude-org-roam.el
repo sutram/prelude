@@ -53,4 +53,5 @@ With WITH-TYPES, ask for file types to search in."
 (global-set-key (kbd "C-c m i") 'org-roam-node-insert)
 (global-set-key (kbd "C-c m t") 'org-roam-dailies-capture-today)
 (global-set-key (kbd "C-c m d") 'org-roam-dailies-capture-date)
+(global-set-key (kbd "C-c m r") 'org-roam-refile)
 (global-set-key (kbd "C-c m s") 'my-org/roam-search)
