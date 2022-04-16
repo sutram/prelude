@@ -46,7 +46,7 @@ With WITH-TYPES, ask for file types to search in."
     (mkdir target t)
     (rename-file fp target t)
     (push (list tfp (file-name-nondirectory tfp)) org-stored-links)
-    tfp))
+    ))
 
 (global-set-key (kbd "C-c m l") 'org-roam-buffer-toggle)
 (global-set-key (kbd "C-c m f") 'org-roam-node-find)
@@ -55,3 +55,4 @@ With WITH-TYPES, ask for file types to search in."
 (global-set-key (kbd "C-c m d") 'org-roam-dailies-capture-date)
 (global-set-key (kbd "C-c m r") 'org-roam-refile)
 (global-set-key (kbd "C-c m s") 'my-org/roam-search)
+(global-set-key (kbd "C-c m m") 'my-org/move-roam-asset)
