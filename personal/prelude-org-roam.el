@@ -1,7 +1,8 @@
 (prelude-require-packages '(org-roam))
 
 (setq org-roam-directory (expand-file-name "~/SynologyDrive/Roam"))
-(setq org-id-locations-file (concat org-roam-directory ".org-id-locations"))
+(setq org-id-locations-file
+      (concat (file-name-as-directory org-roam-directory) ".org-id-locations"))
 (setq org-roam-db-location (expand-file-name "~/SynologyDrive/Roam/org-roam.db"))
 (setq org-roam-dailies-directory "monthly/")
 
@@ -43,8 +44,8 @@ With WITH-TYPES, ask for file types to search in."
          (target (concat (file-name-as-directory org-roam-directory) "assets/"))
          (tfp (concat (file-name-as-directory target) (file-name-nondirectory fp))))
     (mkdir target t)
-    (copy-file fp target t)
-    (dired tfp)
+    (rename-file fp target t)
+    (push (list tfp (file-name-nondirectory tfp)) org-stored-links)
     tfp))
 
 (global-set-key (kbd "C-c m l") 'org-roam-buffer-toggle)
