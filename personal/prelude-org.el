@@ -365,6 +365,14 @@ do not already have one."
 
   (setq org-src-fontify-natively t)
 
+  ;; Extract org link description from value passed in
+  (defun org-link-describe (link desc)
+    (if (file-exists-p link)
+        desc
+      (read-string "Description: " desc)))
+
+  (setf org-make-link-description-function #'org-link-describe)
+
   ;; (setq org-refile-targets (quote (
   ;;                                  ("gtd.org" :maxlevel . 9)
   ;;                                  ("notes.org" :maxlevel . 9)
