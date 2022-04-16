@@ -3,6 +3,7 @@
 (setq org-roam-directory (expand-file-name "~/SynologyDrive/Roam"))
 (setq org-id-locations-file (concat org-roam-directory ".org-id-locations"))
 (setq org-roam-db-location (expand-file-name "~/SynologyDrive/Roam/org-roam.db"))
+(setq org-roam-dailies-directory "monthly/")
 
 (org-roam-db-autosync-enable)
 
@@ -43,6 +44,7 @@ With WITH-TYPES, ask for file types to search in."
          (tfp (concat (file-name-as-directory target) (file-name-nondirectory fp))))
     (mkdir target t)
     (copy-file fp target t)
+    (dired tfp)
     tfp))
 
 (global-set-key (kbd "C-c m l") 'org-roam-buffer-toggle)
