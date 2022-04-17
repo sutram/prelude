@@ -41,10 +41,14 @@ With WITH-TYPES, ask for file types to search in."
 (defun my-org/move-roam-asset ()
   (interactive)
   (let* ((fp (my-org/get-roam-asset-name))
+         (tfn (concat
+               (make-temp-name (number-to-string (random 1000)))
+               "."
+               (file-name-extension fp)))
          (target (concat (file-name-as-directory org-roam-directory) "assets/"))
-         (tfp (concat (file-name-as-directory target) (file-name-nondirectory fp))))
+         (tfp (concat (file-name-as-directory target) tfn)))
     (mkdir target t)
-    (rename-file fp target t)
+    (rename-file fp tfp t)
     (push (list tfp (file-name-nondirectory tfp)) org-stored-links)
     ))
 
