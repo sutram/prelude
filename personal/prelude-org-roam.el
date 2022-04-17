@@ -52,6 +52,9 @@ With WITH-TYPES, ask for file types to search in."
     (push (list tfp (file-name-nondirectory tfp)) org-stored-links)
     ))
 
+;; Save files automatically after a refile
+(advice-add 'org-roam-refile :after 'org-save-all-org-buffers)
+
 (global-set-key (kbd "C-c m l") 'org-roam-buffer-toggle)
 (global-set-key (kbd "C-c m f") 'org-roam-node-find)
 (global-set-key (kbd "C-c m i") 'org-roam-node-insert)

@@ -1,6 +1,7 @@
 (crux-with-region-or-line comment-or-uncomment-region)
 
 (setq whitespace-line-column 120)
+(setq whitespace-style (delete 'lines-tail whitespace-style))
 
 (if (version< emacs-version "28.1")
     (progn
