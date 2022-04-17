@@ -1,5 +1,7 @@
 (crux-with-region-or-line comment-or-uncomment-region)
 
+(setq whitespace-line-column 120)
+
 (if (version< emacs-version "28.1")
     (progn
       (put 'dired-find-alternate-file 'disabled nil) ; disables warning
