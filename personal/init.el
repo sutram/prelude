@@ -1,3 +1,5 @@
+(prelude-require-packages '(alert))
+
 (crux-with-region-or-line comment-or-uncomment-region)
 
 (setq whitespace-line-column 120)
@@ -54,3 +56,11 @@ With WITH-TYPES, ask for file types to search in."
     (helm-current-directory)))
 
 (global-set-key (kbd "C-c h g") 'mu-helm-file-search)
+
+(setq alert-default-style
+      (pcase system-type
+        ('gnu/linux 'libnotify)
+        ('berkeley-unix 'mode-line)
+        ('windows-nt 'toaster)
+        ('darwin 'notifier)
+        (_ 'mode-line)))
