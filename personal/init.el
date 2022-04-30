@@ -1,6 +1,10 @@
 (prelude-require-packages '(alert))
 
+(defun crux-vterm (buffer-name)
+  (vterm))
+
 (crux-with-region-or-line comment-or-uncomment-region)
+(setq crux-term-func 'crux-vterm)
 
 (setq whitespace-line-column 120)
 (setq whitespace-style (delete 'lines-tail whitespace-style))

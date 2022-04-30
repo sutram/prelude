@@ -1,4 +1,4 @@
-(prelude-require-packages '(vterm eshell-vterm eshell-up))
+(prelude-require-packages '(vterm vterm-toggle eshell-vterm eshell-up))
 
 (defun pmi/named-term (term-name)
   "Generate a terminal with buffer name TERM-NAME."
