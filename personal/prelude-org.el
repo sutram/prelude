@@ -354,7 +354,7 @@ do not already have one."
   ;;            #'variable-pitch-mode)
 
   (add-hook 'org-mode-hook
-            '(lambda () (progn
+            #'(lambda () (progn
                           (visual-line-mode)
                           ;; (visual-fill-column-mode 1)
                           (my-org/org-mode-hook)
